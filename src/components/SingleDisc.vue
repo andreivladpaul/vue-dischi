@@ -1,5 +1,5 @@
 <template>
-  <div class="disc text-center p-2">
+  <div class="disc text-center pt-2 ">
       <a href="#">
           <img class="img-fluid mb-1" :src="info.poster" :alt="info.title">
       </a>

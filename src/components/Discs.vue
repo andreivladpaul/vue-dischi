@@ -1,9 +1,9 @@
 <template>
-  <section class="discs pt-4 clearfix ">
+  <section class="discs clearfix ">
       <div class="container px-5 py-5">
-        <div  class="row  mx-2">
+        <div  class="row ">
             <!-- Stampo la lista dei dischi ottenuta tramite Axios API --> <!-- col-6 col-md-4 -->
-            <div v-for="(disc, index) in discsList" :key="index" class=" disc col mx-1 mb-5">
+            <div v-for="(disc, index) in discsList" :key="index" class=" disc col mx-1 mb-4">
                 <SingleDisc :info="disc" />
             </div>
         </div> 
@@ -23,7 +23,8 @@ export default {
     data() {
         return {
             APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-            discsList: []
+            discsList: [],
+            loader: true
         }
         
     },

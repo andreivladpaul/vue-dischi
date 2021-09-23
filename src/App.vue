@@ -3,6 +3,7 @@
     <Header />
     <Discs />
     
+    
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import Header from './components/Header.vue'
 import Discs from './components/Discs.vue'
 
+
 export default {
   name: 'App',
   components: {
     Header,
     Discs
+    
   }
 }
 </script>
