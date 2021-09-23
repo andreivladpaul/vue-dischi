@@ -3,7 +3,14 @@
       <img src="../assets/spotify-logo.png" alt="">
 
       <div class="search d-flex justify-content-center align-items-center"  >
-          <input type="text" class="px-1 me-2 rounded-1"  placeholder="Search by genre">
+            <select name="genre" class="px-3 py-1 me-2 rounded-1 search" id="genre">
+                <option value="" selected>Search by genre</option>
+                <option value="rock">Rock</option>
+                <option value="Pop">Pop</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Metal">Metal</option>
+            </select>
+
           <button type="input" class="px-3 py-1 me-2 rounded-1">Search</button>
 
       </div>
@@ -28,13 +35,9 @@ export default {
             height: 50px;
         }
         .search {
-            input {
-                
-                &::placeholder {
-                    font-size: 16px;
-                }
+            font-size: 16px;
            
-            }
+        
              button {
                     background-color: rgb(10, 180, 101);
                     color: #fff;
