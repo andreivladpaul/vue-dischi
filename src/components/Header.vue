@@ -3,23 +3,46 @@
       <img src="../assets/spotify-logo.png" alt="">
 
       <div class="search d-flex justify-content-center align-items-center"  >
-            <select name="genre" class="px-3 py-1 me-2 rounded-1 search" id="genre">
-                <option value="" selected>Search by genre</option>
-                <option value="rock">Rock</option>
-                <option value="Pop">Pop</option>
-                <option value="Jazz">Jazz</option>
-                <option value="Metal">Metal</option>
-            </select>
 
-          <button type="input" class="px-3 py-1 me-2 rounded-1">Search</button>
+            <select name="genere" id="genere" class="px-3 py-1 me-2 rounded-1 search" v-model="genreSelected" 
+            @change="getGenre" >
+                <option value="all">all</option>
+                <option v-for="(genre,index) in geners" :key="index" :value="genre">
+                    {{genre}}
+
+                </option>
+            </select>
 
       </div>
   </div>
 </template>
 
 <script>
+
 export default {
-    name: 'Header',
+  name: 'Header',
+  props: ["discList"],
+  data(){
+    return {
+      genreSelected:"all",
+    }
+  },
+  methods: {
+    getGenre() {
+      this.$emit("getGenre", this.genreSelected);
+    },
+  },
+  computed:{
+    geners(){
+      const genres=[];
+      this.discList.forEach((album)=>{
+        if(!genres.includes(album.genre)){
+          genres.push(album.genre);
+        }
+      })
+      return genres;
+    },
+  },
 }
 </script>
 

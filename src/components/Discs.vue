@@ -3,8 +3,8 @@
       <div class="container px-5 py-5">
         <div  class="row ">
             <!-- Stampo la lista dei dischi ottenuta tramite Axios API --> <!-- col-6 col-md-4 -->
-            <div v-for="(disc, index) in discsList" :key="index" class=" disc col mx-1 mb-4">
-                <SingleDisc :info="disc" />
+            <div v-for="(disc, index) in filterlist" :key="index" class=" disc col mx-1 mb-4">
+                <Disc :item="disc" />
             </div>
         </div> 
       </div>
@@ -12,36 +12,30 @@
 </template>
 
 <script>
-import axios from 'axios'
-import SingleDisc from './SingleDisc.vue'
+import Disc from './Disc.vue'
 
 export default {
-    name: 'Discs',
-    components: {
-        SingleDisc
-    },
-    data() {
-        return {
-            APIUrl: 'https://flynn.boolean.careers/exercises/api/array/music',
-            discsList: [],
-            loader: true
-        }
-        
-    },
-    created() {
-            this.getDiscs();
-        },
-        methods: {
-            getDiscs() {
-                axios
-                    .get(this.APIUrl)
-                    .then(res => {
-                        this.discsList = res.data.response;
-                    })
-            },
-        }
-
-
+  name: 'Discs',
+  props: ["discList","filtergener"],
+  components: {
+    Disc,
+   
+  },
+  data(){
+    return {
+      APIUrl:"https://flynn.boolean.careers/exercises/api/array/music",
+    }
+  },
+  computed:{
+    filterlist(){
+      let filterlist=this.discList.filter((ris)=>{
+        if(this.filtergener=="all") return true
+        else if(ris.genre==this.filtergener)return true;
+        else return false;
+      });
+      return filterlist;
+    }
+  }
 }
 </script>
 

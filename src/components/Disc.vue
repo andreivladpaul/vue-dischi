@@ -1,18 +1,18 @@
 <template>
   <div class="disc text-center pt-3 ">
       <a href="#">
-          <img class="img-fluid mb-1" :src="info.poster" :alt="info.title">
+          <img class="img-fluid mb-1" :src="item.poster" :alt="item.title">
       </a>
-      <p class="title f-big mb-1  text-uppercase font-weight-bold text-white">{{ info.title }}</p>
-        <p class="author f-med mb-1">{{ info.author }}</p>
-        <p class=" year fw-bold f-sm mb-1 ">{{ info.year }}</p>
+      <p class="title f-big mb-1  text-uppercase font-weight-bold text-white">{{ item.title }}</p>
+        <p class="author f-med mb-1">{{ item.author }}</p>
+        <p class=" year fw-bold f-sm mb-1 ">{{ item.year }}</p>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'SingleDisc',
-    props: ['info']
+    name: 'Disc',
+    props: ['item']
 
 }
 </script>
